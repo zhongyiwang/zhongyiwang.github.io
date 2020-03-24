@@ -1,6 +1,24 @@
 <?xml version="1.0" encoding="utf-8"?>
 <search>
   <entry>
+    <title>Python3下载网络图片的2种方式</title>
+    <url>/2020/03/24/Python3%E4%B8%8B%E8%BD%BD%E7%BD%91%E7%BB%9C%E5%9B%BE%E7%89%87%E7%9A%842%E7%A7%8D%E6%96%B9%E5%BC%8F/</url>
+    <content><![CDATA[<p>示例图片：<code>pic_url = &#39;https://www.baidu.com/img/bd_logo1.png&#39;</code></p>
+<h3 id="文件读写的方式"><a href="#文件读写的方式" class="headerlink" title="文件读写的方式"></a>文件读写的方式</h3><p>网络请求获取到图片的二进制文件，然后保存。</p>
+<figure class="highlight python"><table><tr><td class="code"><pre><span class="line"><span class="comment"># 1. 使用 urllib 库</span></span><br><span class="line"><span class="keyword">from</span> urllib <span class="keyword">import</span> request</span><br><span class="line">resp1 = request.urlopen(pic_url)</span><br><span class="line"><span class="keyword">with</span> open(<span class="string">'baidu1.png'</span>, <span class="string">'wb'</span>) <span class="keyword">as</span> fp:</span><br><span class="line">    fp.write(resp1.read())</span><br><span class="line"></span><br><span class="line"><span class="comment"># 2. 使用 requests 库</span></span><br><span class="line"><span class="keyword">import</span> requests</span><br><span class="line">resp2 = requests.get(pic_url)</span><br><span class="line"><span class="keyword">with</span> open(<span class="string">'baidu2.png'</span>, <span class="string">'wb'</span>) <span class="keyword">as</span> fp:</span><br><span class="line">    fp.write(resp2.content)</span><br></pre></td></tr></table></figure>
+
+<h3 id="urllib-库中的-request-urlretrieve-方法"><a href="#urllib-库中的-request-urlretrieve-方法" class="headerlink" title="urllib 库中的 request.urlretrieve() 方法"></a>urllib 库中的 request.urlretrieve() 方法</h3><p>使用 urllib 库封装好的方法。</p>
+<figure class="highlight python"><table><tr><td class="code"><pre><span class="line"><span class="keyword">from</span> urllib.request <span class="keyword">import</span> urlretrieve</span><br><span class="line">urlretrieve(pic_url, <span class="string">'baidu3.png'</span>)</span><br></pre></td></tr></table></figure>
+
+]]></content>
+      <categories>
+        <category>Python基础</category>
+      </categories>
+      <tags>
+        <tag>下载图片</tag>
+      </tags>
+  </entry>
+  <entry>
     <title>利用Github + Hexo 搭建博客</title>
     <url>/2020/03/19/%E5%88%A9%E7%94%A8Github-Hexo-%E6%90%AD%E5%BB%BA%E5%8D%9A%E5%AE%A2/</url>
     <content><![CDATA[<p>搭建当前博客过程中，遇到了些许的坑，记录在此。</p>
