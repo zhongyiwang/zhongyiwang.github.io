@@ -1,6 +1,52 @@
 <?xml version="1.0" encoding="utf-8"?>
 <search>
   <entry>
+    <title>Requests库的使用</title>
+    <url>/2020/03/25/Requests%E5%BA%93%E7%9A%84%E4%BD%BF%E7%94%A8/</url>
+    <content><![CDATA[<h3 id="GET-请求"><a href="#GET-请求" class="headerlink" title="GET 请求"></a>GET 请求</h3><p>测试 GET 请求网址：<code>url = &#39;http://httpbin.org/get&#39;</code></p>
+<h5 id="发送-GET-请求"><a href="#发送-GET-请求" class="headerlink" title="发送 GET 请求"></a>发送 GET 请求</h5><figure class="highlight python"><table><tr><td class="code"><pre><span class="line"><span class="keyword">import</span> requests</span><br><span class="line">resp = requests.get(url)</span><br><span class="line">print(type(resp))  <span class="comment"># 类型为：'requests.models.Response'</span></span><br></pre></td></tr></table></figure>
+
+<h5 id="带参数的-GET-请求"><a href="#带参数的-GET-请求" class="headerlink" title="带参数的 GET 请求"></a>带参数的 GET 请求</h5><figure class="highlight python"><table><tr><td class="code"><pre><span class="line"><span class="keyword">import</span> requests</span><br><span class="line">data = &#123;<span class="string">'name'</span>: <span class="string">'abc'</span>,</span><br><span class="line">       <span class="string">'age'</span>: <span class="number">18</span>&#125;</span><br><span class="line">resp = requests.get(url, params=data)  <span class="comment"># 使用 params 参数</span></span><br><span class="line">print(resp.url)  </span><br><span class="line"><span class="comment"># 组成后的 url 为：'http://httpbin.org/get?age=18&amp;name=abc'</span></span><br><span class="line">print(resp.text)  <span class="comment"># 返回的结果中有 'args' 字段，存储发送的参数</span></span><br></pre></td></tr></table></figure>
+
+<h5 id="用户代理信息-User-Agent"><a href="#用户代理信息-User-Agent" class="headerlink" title="用户代理信息 User-Agent"></a>用户代理信息 User-Agent</h5><p>使用 requests 发送请求的时候，默认携带的用户代理信息为 ‘python-requests/版本号’，请求的服务器会识别这不是一个正常的访问（浏览器）。很多服务器会故意返回非正常的数据。</p>
+<figure class="highlight python"><table><tr><td class="code"><pre><span class="line"><span class="string">"User-Agent"</span>: <span class="string">"python-requests/2.23.0"</span></span><br></pre></td></tr></table></figure>
+
+<p>在发送请求的时候，直接自定义携带的用户代理信息就可以解决这个问题。</p>
+<figure class="highlight python"><table><tr><td class="code"><pre><span class="line"><span class="keyword">import</span> requests</span><br><span class="line">headers = &#123;<span class="string">"User-Agent"</span>: <span class="string">"Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/64.0.3282.140 Safari/537.36 Edge/17.17134"</span>&#125;</span><br><span class="line"></span><br><span class="line">url = <span class="string">'https://www.zhihu.com/explore'</span></span><br><span class="line">resp = requests.get(url, headers=headers)  <span class="comment"># 使用 headers 参数</span></span><br><span class="line">print(resp.status_code)  <span class="comment"># 200，不定义用户代理信息时为：400</span></span><br></pre></td></tr></table></figure>
+
+<h5 id="获取非文本数据（二进制数据）"><a href="#获取非文本数据（二进制数据）" class="headerlink" title="获取非文本数据（二进制数据）"></a>获取非文本数据（二进制数据）</h5><figure class="highlight python"><table><tr><td class="code"><pre><span class="line"><span class="keyword">import</span> requests</span><br><span class="line">resp = resquests.get(<span class="string">'https://www.baidu.com/img/bd_logo1.png'</span>)</span><br><span class="line">print(resp.text)  <span class="comment"># 图片时二进制数据，转成 str 字符串时，会打印乱码</span></span><br><span class="line">print(resp.content)  <span class="comment"># 返回的结果前有字母 b，表示是 bytes 类型数据</span></span><br><span class="line"></span><br><span class="line"><span class="comment"># 保存二进制数据</span></span><br><span class="line"><span class="keyword">with</span> open(<span class="string">'baidu.png'</span>, <span class="string">'wb'</span>) <span class="keyword">as</span> fp:  <span class="comment"># 'wb' 二进制方式打开</span></span><br><span class="line">    fp.write(resp.content)  <span class="comment"># 写入 bytes 数据</span></span><br></pre></td></tr></table></figure>
+
+<h3 id="POST-请求"><a href="#POST-请求" class="headerlink" title="POST 请求"></a>POST 请求</h3><p>测试 POST 请求网址：<code>url = &#39;http://httpbin.org/post&#39;</code></p>
+<figure class="highlight python"><table><tr><td class="code"><pre><span class="line"><span class="keyword">import</span> requests</span><br><span class="line">data = &#123;<span class="string">'name'</span>: <span class="string">'abc'</span>,</span><br><span class="line">        <span class="string">'age'</span>: <span class="number">18</span>&#125;</span><br><span class="line"></span><br><span class="line">resp = requests.post(url, data=data)  <span class="comment"># 使用 data 参数</span></span><br><span class="line">print(resp.text)  <span class="comment"># 传递的参数在返回的 form 字段中</span></span><br></pre></td></tr></table></figure>
+
+<h3 id="Response对象"><a href="#Response对象" class="headerlink" title="Response对象"></a>Response对象</h3><h5 id="查用的属性"><a href="#查用的属性" class="headerlink" title="查用的属性"></a>查用的属性</h5><figure class="highlight python"><table><tr><td class="code"><pre><span class="line">print(resp.url)  <span class="comment"># 返回请求的 url</span></span><br><span class="line">print(resp.status_code)  <span class="comment"># 返回请求的状态码</span></span><br><span class="line">print(resp.headers)  <span class="comment"># 返回响应头</span></span><br><span class="line">print(resp.cookies)  <span class="comment"># 返回 cookies</span></span><br><span class="line">print(resp.text)  <span class="comment"># 返回解码后的 str 字符串</span></span><br><span class="line">print(resp.coding)  <span class="comment"># 返回 requests 的选择的解码方式</span></span><br><span class="line">print(resp.content)  <span class="comment"># 返回 bytes 类型的数据</span></span><br><span class="line">print(resp.apparent_encoding)  <span class="comment"># 返回网页的真实解码方式</span></span><br></pre></td></tr></table></figure>
+
+<h5 id="乱码字符串"><a href="#乱码字符串" class="headerlink" title="乱码字符串"></a>乱码字符串</h5><p>当 requests 默认选择的解码方式(resp.coding)，与网页真实的解码方式(resp.apparent_encoding)不一致时，会导致输入的字符串为乱码。解决办法，可以用 decode 的方式指定编码类型，也可以直接修改 requests 选择的编码类型（resp.coding)。</p>
+<figure class="highlight python"><table><tr><td class="code"><pre><span class="line"><span class="comment"># 方法 1</span></span><br><span class="line">code = resp.apparent_encoding</span><br><span class="line">print(resp.content.decode(code))</span><br><span class="line"><span class="comment"># 方法 2，推荐</span></span><br><span class="line">resp.coding = resp.apparent_encoding</span><br><span class="line">print(resp.text)</span><br></pre></td></tr></table></figure>
+
+<h5 id="JSON-格式字符串"><a href="#JSON-格式字符串" class="headerlink" title="JSON 格式字符串"></a>JSON 格式字符串</h5><p>请求网页后，如果返回的 JSON 格式的字符串，可以直接调用请求对象的 json() 方法，将返回的字符串转化为字典类型。</p>
+<figure class="highlight python"><table><tr><td class="code"><pre><span class="line">print(resp.json())</span><br><span class="line">print(type(resp.json()))  <span class="comment"># class 'dict'</span></span><br></pre></td></tr></table></figure>
+
+<h3 id="进阶用法"><a href="#进阶用法" class="headerlink" title="进阶用法"></a>进阶用法</h3><h5 id="cookies"><a href="#cookies" class="headerlink" title="cookies"></a>cookies</h5><p>要访问的网页，如果时需要登录后才能获取的，那么需要在访问的时候携带登录后的 cookies。简单粗暴的方式是，人工登录网页后，获取 cookies，然后 requests 访问的时候携带之前获取的 cookies 信息。携带 cookies 有 2 种方式，一种是写在 headers 中 cookie 字段上。一种时将 cookies 组合成键值对的字典形式，GET 请求时，传递 cookies 参数。</p>
+<figure class="highlight python"><table><tr><td class="code"><pre><span class="line"><span class="keyword">import</span> requests</span><br><span class="line"><span class="comment"># 测试网页为豆瓣的个人中心页面，在没登录的情况下会跳转到登录页面。</span></span><br><span class="line">url = <span class="string">'https://www.douban.com/people/55xxxx39/'</span></span><br><span class="line"><span class="comment"># 方式 1</span></span><br><span class="line">headers = &#123;<span class="string">"User-Agent"</span>: <span class="string">"Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/64.0.3282.140 Safari/537.36 Edge/17.17134"</span>,</span><br><span class="line">           <span class="string">"cookie"</span>:<span class="string">'bid=zwso; dbcl2="5539:GxKSc"; ck=oi1g; _pk_ref.100001.8cb4=%5B%2F%2Faccounts.douban.com%2Fpassport%2FloginD; _pk_id.100.8cb4=bf6fe.15857.; _pk_ses.1001.8cb4=*; ap_v=0,6.0; __gads=ID=af902:T=1547386:S=ALNI_Ml6g_9e11u1pikw'</span>&#125;</span><br><span class="line"></span><br><span class="line">resp = requests.get(url, headers=headers)</span><br><span class="line">print(resp.url)  <span class="comment"># 携带 cookies 访问，返回个人中心 url</span></span><br><span class="line"></span><br><span class="line"><span class="comment"># 方式 2</span></span><br><span class="line">headers = &#123;<span class="string">"User-Agent"</span>: <span class="string">"Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/64.0.3282.140 Safari/537.36 Edge/17.17134"</span>&#125;</span><br><span class="line">cookies_str = <span class="string">'bid=zwso; dbcl2="5539:GxKSc"; ck=oi1g; _pk_ref.100001.8cb4=%5B%2F%2Faccounts.douban.com%2Fpassport%2FloginD; _pk_id.100.8cb4=bf6fe.15857.; _pk_ses.1001.8cb4=*; ap_v=0,6.0; __gads=ID=af902:T=1547386:S=ALNI_Ml6g_9e11u1pikw'</span></span><br><span class="line"></span><br><span class="line">cookies_list = cookies_str.split(<span class="string">'; '</span>)</span><br><span class="line">cookies_dict = &#123;&#125;</span><br><span class="line"><span class="keyword">for</span> cookie <span class="keyword">in</span> cookies_list:</span><br><span class="line">    cookies_dict[cookie.split(<span class="string">'='</span>)[<span class="number">0</span>]] = cookie.split(<span class="string">'='</span>)[<span class="number">1</span>]</span><br><span class="line">resp = requests.get(url, headers=headers, cookies=cookies_dict)</span><br><span class="line">print(resp.url)  <span class="comment"># 携带 cookies 访问，返回个人中心 url</span></span><br></pre></td></tr></table></figure>
+
+<h5 id="代理-proxies"><a href="#代理-proxies" class="headerlink" title="代理 proxies"></a>代理 proxies</h5><p>防止频繁的使用同一 ip 访问目标网站（容易被封 ip，导致无法访问），或使用本地代理等访问目标网站，均需要使用代理。</p>
+<figure class="highlight python"><table><tr><td class="code"><pre><span class="line"><span class="keyword">import</span> requests</span><br><span class="line"></span><br><span class="line">proxies = &#123;</span><br><span class="line">  <span class="string">"http"</span>: <span class="string">"http://10.10.1.10:3128"</span>,  <span class="comment"># http 和 https 只写其一也是可以的</span></span><br><span class="line">  <span class="string">"https"</span>: <span class="string">"http://10.10.1.10:1080"</span>,</span><br><span class="line">&#125;</span><br><span class="line">requests.get(<span class="string">"http://example.org"</span>, proxies=proxies)</span><br></pre></td></tr></table></figure>
+
+<p>除了基本的 HTTP 代理，requests 还支持 SOCKS 协议的代理。安装：<code>pip install requests[socks]</code></p>
+<figure class="highlight python"><table><tr><td class="code"><pre><span class="line"><span class="keyword">import</span> requests</span><br><span class="line"></span><br><span class="line">proxy = &#123;</span><br><span class="line">    <span class="string">'http'</span>: <span class="string">'socks5://127.0.0.1:1080'</span>,  <span class="comment"># 本机的地址及端口号</span></span><br><span class="line">    <span class="string">'https'</span>: <span class="string">'socks5://127.0.0.1:1080'</span></span><br><span class="line">&#125;</span><br><span class="line">requests.get(<span class="string">"http://example.org"</span>, proxies=proxies)</span><br></pre></td></tr></table></figure>
+
+]]></content>
+      <categories>
+        <category>Python3爬虫基础</category>
+      </categories>
+      <tags>
+        <tag>requests库</tag>
+        <tag>代理</tag>
+        <tag>cookies</tag>
+      </tags>
+  </entry>
+  <entry>
     <title>Python3下载网络图片的2种方式</title>
     <url>/2020/03/24/Python3%E4%B8%8B%E8%BD%BD%E7%BD%91%E7%BB%9C%E5%9B%BE%E7%89%87%E7%9A%842%E7%A7%8D%E6%96%B9%E5%BC%8F/</url>
     <content><![CDATA[<p>示例图片：<code>pic_url = &#39;https://www.baidu.com/img/bd_logo1.png&#39;</code></p>
@@ -12,7 +58,7 @@
 
 ]]></content>
       <categories>
-        <category>Python基础</category>
+        <category>Python3爬虫基础</category>
       </categories>
       <tags>
         <tag>下载图片</tag>

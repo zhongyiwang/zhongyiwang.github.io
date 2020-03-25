@@ -20,33 +20,35 @@
     var CONFIG = {"hostname":"yoursite.com","root":"/","scheme":"Pisces","version":"7.7.2","exturl":false,"sidebar":{"position":"left","display":"post","padding":18,"offset":12,"onmobile":false},"copycode":{"enable":true,"show_result":true,"style":null},"back2top":{"enable":true,"sidebar":false,"scrollpercent":true},"bookmark":{"enable":false,"color":"#222","save":"auto"},"fancybox":false,"mediumzoom":false,"lazyload":false,"pangu":true,"comments":{"style":"tabs","active":null,"storage":true,"lazyload":false,"nav":null},"algolia":{"hits":{"per_page":10},"labels":{"input_placeholder":"Search for Posts","hits_empty":"We didn't find any results for the search: ${query}","hits_stats":"${hits} results found in ${time} ms"}},"localsearch":{"enable":false,"trigger":"auto","top_n_per_article":1,"unescape":false,"preload":false},"motion":{"enable":true,"async":false,"transition":{"post_block":"fadeIn","post_header":"slideDownIn","post_body":"slideDownIn","coll_header":"slideLeftIn","sidebar":"slideUpIn"}},"path":"search.xml"};
   </script>
 
-  <meta name="description" content="斜杠程序员的代码笔记，主要语言 Python，主要领域爬虫。">
-<meta property="og:type" content="website">
-<meta property="og:title" content="CodeEase">
-<meta property="og:url" content="http://yoursite.com/index.html">
+  <meta name="description" content="GET 请求测试 GET 请求网址：url &#x3D; &#39;http:&#x2F;&#x2F;httpbin.org&#x2F;get&#39; 发送 GET 请求123import requestsresp &#x3D; requests.get(url)print(type(resp))  # 类型为：&#39;requests.models.Response&#39;  带参数的 GET 请求1234567import requestsdata &#x3D;">
+<meta property="og:type" content="article">
+<meta property="og:title" content="Requests库的使用">
+<meta property="og:url" content="http://yoursite.com/2020/03/25/Requests%E5%BA%93%E7%9A%84%E4%BD%BF%E7%94%A8/index.html">
 <meta property="og:site_name" content="CodeEase">
-<meta property="og:description" content="斜杠程序员的代码笔记，主要语言 Python，主要领域爬虫。">
+<meta property="og:description" content="GET 请求测试 GET 请求网址：url &#x3D; &#39;http:&#x2F;&#x2F;httpbin.org&#x2F;get&#39; 发送 GET 请求123import requestsresp &#x3D; requests.get(url)print(type(resp))  # 类型为：&#39;requests.models.Response&#39;  带参数的 GET 请求1234567import requestsdata &#x3D;">
 <meta property="og:locale" content="zh_CN">
+<meta property="article:published_time" content="2020-03-25T13:09:59.000Z">
+<meta property="article:modified_time" content="2020-03-25T15:18:58.055Z">
 <meta property="article:author" content="Zhongyi Wang">
-<meta property="article:tag" content="Python">
-<meta property="article:tag" content=" 爬虫">
-<meta property="article:tag" content=" Flask">
+<meta property="article:tag" content="requests库">
+<meta property="article:tag" content="代理">
+<meta property="article:tag" content="cookies">
 <meta name="twitter:card" content="summary">
 
-<link rel="canonical" href="http://yoursite.com/">
+<link rel="canonical" href="http://yoursite.com/2020/03/25/Requests%E5%BA%93%E7%9A%84%E4%BD%BF%E7%94%A8/">
 
 
 <script id="page-configurations">
   // https://hexo.io/docs/variables.html
   CONFIG.page = {
     sidebar: "",
-    isHome : true,
-    isPost : false,
+    isHome : false,
+    isPost : true,
     lang   : 'zh-CN'
   };
 </script>
 
-  <title>CodeEase</title>
+  <title>Requests库的使用 | CodeEase</title>
   
 
 
@@ -157,10 +159,10 @@
             
 
   <div class="posts-expand">
-        
+      
   
   
-  <article itemscope itemtype="http://schema.org/Article" class="post-block home" lang="zh-CN">
+  <article itemscope itemtype="http://schema.org/Article" class="post-block " lang="zh-CN">
     <link itemprop="mainEntityOfPage" href="http://yoursite.com/2020/03/25/Requests%E5%BA%93%E7%9A%84%E4%BD%BF%E7%94%A8/">
 
     <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
@@ -174,8 +176,7 @@
     </span>
       <header class="post-header">
         <h1 class="post-title" itemprop="name headline">
-          
-            <a href="/2020/03/25/Requests%E5%BA%93%E7%9A%84%E4%BD%BF%E7%94%A8/" class="post-title-link" itemprop="url">Requests库的使用</a>
+          Requests库的使用
         </h1>
 
         <div class="post-meta">
@@ -209,7 +210,7 @@
     <div class="post-body" itemprop="articleBody">
 
       
-          <h3 id="GET-请求"><a href="#GET-请求" class="headerlink" title="GET 请求"></a>GET 请求</h3><p>测试 GET 请求网址：<code>url = &#39;http://httpbin.org/get&#39;</code></p>
+        <h3 id="GET-请求"><a href="#GET-请求" class="headerlink" title="GET 请求"></a>GET 请求</h3><p>测试 GET 请求网址：<code>url = &#39;http://httpbin.org/get&#39;</code></p>
 <h5 id="发送-GET-请求"><a href="#发送-GET-请求" class="headerlink" title="发送 GET 请求"></a>发送 GET 请求</h5><figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">import</span> requests</span><br><span class="line">resp = requests.get(url)</span><br><span class="line">print(type(resp))  <span class="comment"># 类型为：'requests.models.Response'</span></span><br></pre></td></tr></table></figure>
 
 <h5 id="带参数的-GET-请求"><a href="#带参数的-GET-请求" class="headerlink" title="带参数的 GET 请求"></a>带参数的 GET 请求</h5><figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">import</span> requests</span><br><span class="line">data = &#123;<span class="string">'name'</span>: <span class="string">'abc'</span>,</span><br><span class="line">       <span class="string">'age'</span>: <span class="number">18</span>&#125;</span><br><span class="line">resp = requests.get(url, params=data)  <span class="comment"># 使用 params 参数</span></span><br><span class="line">print(resp.url)  </span><br><span class="line"><span class="comment"># 组成后的 url 为：'http://httpbin.org/get?age=18&amp;name=abc'</span></span><br><span class="line">print(resp.text)  <span class="comment"># 返回的结果中有 'args' 字段，存储发送的参数</span></span><br></pre></td></tr></table></figure>
@@ -243,376 +244,38 @@
 <figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">import</span> requests</span><br><span class="line"></span><br><span class="line">proxy = &#123;</span><br><span class="line">    <span class="string">'http'</span>: <span class="string">'socks5://127.0.0.1:1080'</span>,  <span class="comment"># 本机的地址及端口号</span></span><br><span class="line">    <span class="string">'https'</span>: <span class="string">'socks5://127.0.0.1:1080'</span></span><br><span class="line">&#125;</span><br><span class="line">requests.get(<span class="string">"http://example.org"</span>, proxies=proxies)</span><br></pre></td></tr></table></figure>
 
 
-      
     </div>
 
     
     
     
+
       <footer class="post-footer">
-        <div class="post-eof"></div>
-      </footer>
-  </article>
-  
-  
-  
+          <div class="post-tags">
+              <a href="/tags/requests%E5%BA%93/" rel="tag"># requests库</a>
+              <a href="/tags/%E4%BB%A3%E7%90%86/" rel="tag"># 代理</a>
+              <a href="/tags/cookies/" rel="tag"># cookies</a>
+          </div>
 
         
-  
-  
-  <article itemscope itemtype="http://schema.org/Article" class="post-block home" lang="zh-CN">
-    <link itemprop="mainEntityOfPage" href="http://yoursite.com/2020/03/24/Python3%E4%B8%8B%E8%BD%BD%E7%BD%91%E7%BB%9C%E5%9B%BE%E7%89%87%E7%9A%842%E7%A7%8D%E6%96%B9%E5%BC%8F/">
 
-    <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
-      <meta itemprop="image" content="/images/avatar.png">
-      <meta itemprop="name" content="Zhongyi Wang">
-      <meta itemprop="description" content="斜杠程序员的代码笔记，主要语言 Python，主要领域爬虫。">
-    </span>
-
-    <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
-      <meta itemprop="name" content="CodeEase">
-    </span>
-      <header class="post-header">
-        <h1 class="post-title" itemprop="name headline">
-          
-            <a href="/2020/03/24/Python3%E4%B8%8B%E8%BD%BD%E7%BD%91%E7%BB%9C%E5%9B%BE%E7%89%87%E7%9A%842%E7%A7%8D%E6%96%B9%E5%BC%8F/" class="post-title-link" itemprop="url">Python3下载网络图片的2种方式</a>
-        </h1>
-
-        <div class="post-meta">
-            <span class="post-meta-item">
-              <span class="post-meta-item-icon">
-                <i class="fa fa-calendar-o"></i>
-              </span>
-              <span class="post-meta-item-text">发表于</span>
-
-              <time title="创建时间：2020-03-24 22:00:46" itemprop="dateCreated datePublished" datetime="2020-03-24T22:00:46+08:00">2020-03-24</time>
-            </span>
-              <span class="post-meta-item">
-                <span class="post-meta-item-icon">
-                  <i class="fa fa-calendar-check-o"></i>
-                </span>
-                <span class="post-meta-item-text">更新于</span>
-                <time title="修改时间：2020-03-25 23:18:10" itemprop="dateModified" datetime="2020-03-25T23:18:10+08:00">2020-03-25</time>
-              </span>
-            <span class="post-meta-item">
-              <span class="post-meta-item-icon">
-                <i class="fa fa-folder-o"></i>
-              </span>
-              <span class="post-meta-item-text">分类于</span>
-                <span itemprop="about" itemscope itemtype="http://schema.org/Thing">
-                  <a href="/categories/Python3%E7%88%AC%E8%99%AB%E5%9F%BA%E7%A1%80/" itemprop="url" rel="index"><span itemprop="name">Python3爬虫基础</span></a>
-                </span>
-            </span>
-
-          
-
-        </div>
-      </header>
-
-    
-    
-    
-    <div class="post-body" itemprop="articleBody">
-
-      
-          <p>示例图片：<code>pic_url = &#39;https://www.baidu.com/img/bd_logo1.png&#39;</code></p>
-<h3 id="文件读写的方式"><a href="#文件读写的方式" class="headerlink" title="文件读写的方式"></a>文件读写的方式</h3><p>网络请求获取到图片的二进制文件，然后保存。</p>
-<figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment"># 1. 使用 urllib 库</span></span><br><span class="line"><span class="keyword">from</span> urllib <span class="keyword">import</span> request</span><br><span class="line">resp1 = request.urlopen(pic_url)</span><br><span class="line"><span class="keyword">with</span> open(<span class="string">'baidu1.png'</span>, <span class="string">'wb'</span>) <span class="keyword">as</span> fp:</span><br><span class="line">    fp.write(resp1.read())</span><br><span class="line"></span><br><span class="line"><span class="comment"># 2. 使用 requests 库</span></span><br><span class="line"><span class="keyword">import</span> requests</span><br><span class="line">resp2 = requests.get(pic_url)</span><br><span class="line"><span class="keyword">with</span> open(<span class="string">'baidu2.png'</span>, <span class="string">'wb'</span>) <span class="keyword">as</span> fp:</span><br><span class="line">    fp.write(resp2.content)</span><br></pre></td></tr></table></figure>
-
-<h3 id="urllib-库中的-request-urlretrieve-方法"><a href="#urllib-库中的-request-urlretrieve-方法" class="headerlink" title="urllib 库中的 request.urlretrieve() 方法"></a>urllib 库中的 request.urlretrieve() 方法</h3><p>使用 urllib 库封装好的方法。</p>
-<figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">from</span> urllib.request <span class="keyword">import</span> urlretrieve</span><br><span class="line">urlretrieve(pic_url, <span class="string">'baidu3.png'</span>)</span><br></pre></td></tr></table></figure>
-
-
-      
-    </div>
-
-    
-    
-    
-      <footer class="post-footer">
-        <div class="post-eof"></div>
-      </footer>
-  </article>
-  
-  
-  
 
         
-  
-  
-  <article itemscope itemtype="http://schema.org/Article" class="post-block home" lang="zh-CN">
-    <link itemprop="mainEntityOfPage" href="http://yoursite.com/2020/03/19/%E5%88%A9%E7%94%A8Github-Hexo-%E6%90%AD%E5%BB%BA%E5%8D%9A%E5%AE%A2/">
-
-    <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
-      <meta itemprop="image" content="/images/avatar.png">
-      <meta itemprop="name" content="Zhongyi Wang">
-      <meta itemprop="description" content="斜杠程序员的代码笔记，主要语言 Python，主要领域爬虫。">
-    </span>
-
-    <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
-      <meta itemprop="name" content="CodeEase">
-    </span>
-      <header class="post-header">
-        <h1 class="post-title" itemprop="name headline">
-          
-            <a href="/2020/03/19/%E5%88%A9%E7%94%A8Github-Hexo-%E6%90%AD%E5%BB%BA%E5%8D%9A%E5%AE%A2/" class="post-title-link" itemprop="url">利用Github + Hexo 搭建博客</a>
-        </h1>
-
-        <div class="post-meta">
-            <span class="post-meta-item">
-              <span class="post-meta-item-icon">
-                <i class="fa fa-calendar-o"></i>
-              </span>
-              <span class="post-meta-item-text">发表于</span>
-              
-
-              <time title="创建时间：2020-03-19 23:06:21 / 修改时间：23:47:09" itemprop="dateCreated datePublished" datetime="2020-03-19T23:06:21+08:00">2020-03-19</time>
-            </span>
-
-          
-
-        </div>
-      </header>
-
-    
-    
-    
-    <div class="post-body" itemprop="articleBody">
-
-      
-          <p>搭建当前博客过程中，遇到了些许的坑，记录在此。</p>
-<ol>
-<li><p>注册 Github.com 账号，并创建一个 {username}.github.io 的仓库。</p>
-</li>
-<li><p>本地配置好 git 账户，在Github上添加 ssh key。</p>
-</li>
-<li><p>下载安装 Node.js 。下载地址：<a href="https://nodejs.org/zh-cn/download/" target="_blank" rel="noopener">https://nodejs.org/zh-cn/download/</a></p>
-</li>
-<li><p>安装 Hexo</p>
-<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">npm install hexo-cli -g</span><br></pre></td></tr></table></figure>
-</li>
-<li><p>初始化博客项目，创建好一个项目目录，在项目目录中</p>
-<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">hexo init</span><br></pre></td></tr></table></figure>
-</li>
-<li><p>将 Hexo 编译成 HTML 代码</p>
-<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">hexo generate  # 缩写 hexo g</span><br></pre></td></tr></table></figure>
-</li>
-<li><p>启动本地服务器</p>
-<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">hexo server  # 缩写 hexo s</span><br></pre></td></tr></table></figure>
-</li>
-<li><p>本体运行没错误的话，下一步，部署在 Github Pages 上。</p>
-</li>
-<li><p>配置根目录下 _config.yml 文件</p>
-<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br></pre></td><td class="code"><pre><span class="line"># Deployment</span><br><span class="line">## Docs: https:&#x2F;&#x2F;hexo.io&#x2F;docs&#x2F;deployment.html</span><br><span class="line">deploy:</span><br><span class="line">  type: git</span><br><span class="line">  repo: git@github.com:&#123;username&#125;&#x2F;&#123;username&#125;.github.io.git</span><br><span class="line">  branch: master</span><br></pre></td></tr></table></figure>
-</li>
-<li><p>安装 Git 部署插件</p>
-<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">npm install hexo-deployer-git --save</span><br></pre></td></tr></table></figure>
-</li>
-<li><p>执行 Hexo 部署命令</p>
-<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">hexo deploy  # 缩写 hexo d</span><br></pre></td></tr></table></figure>
-</li>
-<li><p>打开 username.github.io 确认是否部署成功</p>
-</li>
-<li><p>部署成功后，会在 username.github.io 的仓库中，看到博客的源代码在 master 分支上</p>
-</li>
-<li><p>在本地创建 git 仓库，将 Hexo 的项目源代码上传到 Github中，也在 username.github.io 这个仓库中，使用 source 分支。</p>
-<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br></pre></td><td class="code"><pre><span class="line">git init</span><br><span class="line">git checkout -b source</span><br><span class="line">git add -A</span><br><span class="line">git commit -m &quot;init blog&quot;</span><br><span class="line">git remote add origin git@github.com:&#123;username&#125;&#x2F;&#123;username&#125;.github.io.git</span><br><span class="line">git push origin source</span><br></pre></td></tr></table></figure>
-</li>
-<li><p>配置站点信息，根目录的 _config.yml 文件。其中 language 配置为 zh-CN，timezone 配置为 Asia/Shanghai 。</p>
-</li>
-<li><p>修改主题，使用 Next 主题</p>
-</li>
-<li><p>在 Github 网站上 fork Next 的主题到自己的仓库中，这样便于修改主题的配置文件后，也保存在 Github 中。</p>
-</li>
-<li><p>使用 submodule 添加自己 forked 的 Next 主题仓库</p>
-<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">git submodule add git@github.com:&#123;useranme&#125;&#x2F;hexo-theme-next.git themes&#x2F;next</span><br></pre></td></tr></table></figure>
-</li>
-<li><p>使用 Next 主题，修改根目录下的 _config.yml 文件</p>
-<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">theme: next</span><br></pre></td></tr></table></figure>
-</li>
-<li><p>根据需要配置 Next 的主题配置，在 /themes/next 文件夹下的 _config.yml 文件中。</p>
-</li>
-<li><p>Hexo 写新的文章</p>
-<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">hexo new article-title</span><br></pre></td></tr></table></figure>
-</li>
-<li><p>Hexo 博客项目文件修改配置或新增文章后，需要重新部署</p>
-<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line">hexo clean</span><br><span class="line">hexo g</span><br><span class="line">hexo d</span><br></pre></td></tr></table></figure>
-</li>
-<li><p>在 Github 的 username.github.io 仓库中配置自己的域名。在 Hexo 部署的时候，会自动清除点自己配置的域名信息，需要在项目的根目录下创建一个 CNMAE 文件，内容为</p>
-<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">xxx.com</span><br></pre></td></tr></table></figure>
-</li>
-<li><p>上传主题配置文件到 Github，在主题文件目录内</p>
-<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line">git add .</span><br><span class="line">git commit -m &quot;xxx&quot;</span><br><span class="line">git push</span><br></pre></td></tr></table></figure>
-</li>
-<li><p>上传项目文件到 Github，在项目跟目录下</p>
-<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line">git add .</span><br><span class="line">git commit -m &quot;xxx&quot;</span><br><span class="line">git push origin source</span><br></pre></td></tr></table></figure>
-
-
-
-</li>
-</ol>
-<p>参考：<a href="https://cuiqingcai.com/7625.html" target="_blank" rel="noopener">https://cuiqingcai.com/7625.html</a></p>
-
-      
+    <div class="post-nav">
+      <div class="post-nav-item">
+    <a href="/2020/03/24/Python3%E4%B8%8B%E8%BD%BD%E7%BD%91%E7%BB%9C%E5%9B%BE%E7%89%87%E7%9A%842%E7%A7%8D%E6%96%B9%E5%BC%8F/" rel="prev" title="Python3下载网络图片的2种方式">
+      <i class="fa fa-chevron-left"></i> Python3下载网络图片的2种方式
+    </a></div>
+      <div class="post-nav-item"></div>
     </div>
-
-    
-    
-    
-      <footer class="post-footer">
-        <div class="post-eof"></div>
       </footer>
-  </article>
-  
-  
-  
-
-        
-  
-  
-  <article itemscope itemtype="http://schema.org/Article" class="post-block home" lang="zh-CN">
-    <link itemprop="mainEntityOfPage" href="http://yoursite.com/2020/03/19/test1/">
-
-    <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
-      <meta itemprop="image" content="/images/avatar.png">
-      <meta itemprop="name" content="Zhongyi Wang">
-      <meta itemprop="description" content="斜杠程序员的代码笔记，主要语言 Python，主要领域爬虫。">
-    </span>
-
-    <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
-      <meta itemprop="name" content="CodeEase">
-    </span>
-      <header class="post-header">
-        <h1 class="post-title" itemprop="name headline">
-          
-            <a href="/2020/03/19/test1/" class="post-title-link" itemprop="url">test1</a>
-        </h1>
-
-        <div class="post-meta">
-            <span class="post-meta-item">
-              <span class="post-meta-item-icon">
-                <i class="fa fa-calendar-o"></i>
-              </span>
-              <span class="post-meta-item-text">发表于</span>
-              
-
-              <time title="创建时间：2020-03-19 22:26:49 / 修改时间：22:28:37" itemprop="dateCreated datePublished" datetime="2020-03-19T22:26:49+08:00">2020-03-19</time>
-            </span>
-            <span class="post-meta-item">
-              <span class="post-meta-item-icon">
-                <i class="fa fa-folder-o"></i>
-              </span>
-              <span class="post-meta-item-text">分类于</span>
-                <span itemprop="about" itemscope itemtype="http://schema.org/Thing">
-                  <a href="/categories/%E5%88%86%E7%B1%BB1/" itemprop="url" rel="index"><span itemprop="name">分类1</span></a>
-                </span>
-                  ，
-                <span itemprop="about" itemscope itemtype="http://schema.org/Thing">
-                  <a href="/categories/%E5%88%86%E7%B1%BB1/%E5%88%86%E7%B1%BB2/" itemprop="url" rel="index"><span itemprop="name">分类2</span></a>
-                </span>
-            </span>
-
-          
-
-        </div>
-      </header>
-
     
-    
-    
-    <div class="post-body" itemprop="articleBody">
-
-      
-          <p>欢迎 welcome</p>
-
-      
-    </div>
-
-    
-    
-    
-      <footer class="post-footer">
-        <div class="post-eof"></div>
-      </footer>
-  </article>
-  
-  
-  
-
-        
-  
-  
-  <article itemscope itemtype="http://schema.org/Article" class="post-block home" lang="zh-CN">
-    <link itemprop="mainEntityOfPage" href="http://yoursite.com/2020/03/19/hello-world/">
-
-    <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
-      <meta itemprop="image" content="/images/avatar.png">
-      <meta itemprop="name" content="Zhongyi Wang">
-      <meta itemprop="description" content="斜杠程序员的代码笔记，主要语言 Python，主要领域爬虫。">
-    </span>
-
-    <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
-      <meta itemprop="name" content="CodeEase">
-    </span>
-      <header class="post-header">
-        <h1 class="post-title" itemprop="name headline">
-          
-            <a href="/2020/03/19/hello-world/" class="post-title-link" itemprop="url">Hello World</a>
-        </h1>
-
-        <div class="post-meta">
-            <span class="post-meta-item">
-              <span class="post-meta-item-icon">
-                <i class="fa fa-calendar-o"></i>
-              </span>
-              <span class="post-meta-item-text">发表于</span>
-
-              <time title="创建时间：2020-03-19 21:54:42" itemprop="dateCreated datePublished" datetime="2020-03-19T21:54:42+08:00">2020-03-19</time>
-            </span>
-
-          
-
-        </div>
-      </header>
-
-    
-    
-    
-    <div class="post-body" itemprop="articleBody">
-
-      
-          <p>Welcome to <a href="https://hexo.io/" target="_blank" rel="noopener">Hexo</a>! This is your very first post. Check <a href="https://hexo.io/docs/" target="_blank" rel="noopener">documentation</a> for more info. If you get any problems when using Hexo, you can find the answer in <a href="https://hexo.io/docs/troubleshooting.html" target="_blank" rel="noopener">troubleshooting</a> or you can ask me on <a href="https://github.com/hexojs/hexo/issues" target="_blank" rel="noopener">GitHub</a>.</p>
-<h2 id="Quick-Start"><a href="#Quick-Start" class="headerlink" title="Quick Start"></a>Quick Start</h2><h3 id="Create-a-new-post"><a href="#Create-a-new-post" class="headerlink" title="Create a new post"></a>Create a new post</h3><figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">$ hexo new <span class="string">"My New Post"</span></span><br></pre></td></tr></table></figure>
-
-<p>More info: <a href="https://hexo.io/docs/writing.html" target="_blank" rel="noopener">Writing</a></p>
-<h3 id="Run-server"><a href="#Run-server" class="headerlink" title="Run server"></a>Run server</h3><figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">$ hexo server</span><br></pre></td></tr></table></figure>
-
-<p>More info: <a href="https://hexo.io/docs/server.html" target="_blank" rel="noopener">Server</a></p>
-<h3 id="Generate-static-files"><a href="#Generate-static-files" class="headerlink" title="Generate static files"></a>Generate static files</h3><figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">$ hexo generate</span><br></pre></td></tr></table></figure>
-
-<p>More info: <a href="https://hexo.io/docs/generating.html" target="_blank" rel="noopener">Generating</a></p>
-<h3 id="Deploy-to-remote-sites"><a href="#Deploy-to-remote-sites" class="headerlink" title="Deploy to remote sites"></a>Deploy to remote sites</h3><figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">$ hexo deploy</span><br></pre></td></tr></table></figure>
-
-<p>More info: <a href="https://hexo.io/docs/one-command-deployment.html" target="_blank" rel="noopener">Deployment</a></p>
-
-      
-    </div>
-
-    
-    
-    
-      <footer class="post-footer">
-        <div class="post-eof"></div>
-      </footer>
   </article>
   
   
   
 
   </div>
-
-  
-
 
 
           </div>
@@ -663,6 +326,7 @@
 
       <!--noindex-->
       <div class="post-toc-wrap sidebar-panel">
+          <div class="post-toc motion-element"><ol class="nav"><li class="nav-item nav-level-3"><a class="nav-link" href="#GET-请求"><span class="nav-number">1.</span> <span class="nav-text">GET 请求</span></a><ol class="nav-child"><li class="nav-item nav-level-5"><a class="nav-link" href="#发送-GET-请求"><span class="nav-number">1.0.1.</span> <span class="nav-text">发送 GET 请求</span></a></li><li class="nav-item nav-level-5"><a class="nav-link" href="#带参数的-GET-请求"><span class="nav-number">1.0.2.</span> <span class="nav-text">带参数的 GET 请求</span></a></li><li class="nav-item nav-level-5"><a class="nav-link" href="#用户代理信息-User-Agent"><span class="nav-number">1.0.3.</span> <span class="nav-text">用户代理信息 User-Agent</span></a></li><li class="nav-item nav-level-5"><a class="nav-link" href="#获取非文本数据（二进制数据）"><span class="nav-number">1.0.4.</span> <span class="nav-text">获取非文本数据（二进制数据）</span></a></li></ol></li></ol></li><li class="nav-item nav-level-3"><a class="nav-link" href="#POST-请求"><span class="nav-number">2.</span> <span class="nav-text">POST 请求</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#Response对象"><span class="nav-number">3.</span> <span class="nav-text">Response对象</span></a><ol class="nav-child"><li class="nav-item nav-level-5"><a class="nav-link" href="#查用的属性"><span class="nav-number">3.0.1.</span> <span class="nav-text">查用的属性</span></a></li><li class="nav-item nav-level-5"><a class="nav-link" href="#乱码字符串"><span class="nav-number">3.0.2.</span> <span class="nav-text">乱码字符串</span></a></li><li class="nav-item nav-level-5"><a class="nav-link" href="#JSON-格式字符串"><span class="nav-number">3.0.3.</span> <span class="nav-text">JSON 格式字符串</span></a></li></ol></li></ol></li><li class="nav-item nav-level-3"><a class="nav-link" href="#进阶用法"><span class="nav-number">4.</span> <span class="nav-text">进阶用法</span></a><ol class="nav-child"><li class="nav-item nav-level-5"><a class="nav-link" href="#cookies"><span class="nav-number">4.0.1.</span> <span class="nav-text">cookies</span></a></li><li class="nav-item nav-level-5"><a class="nav-link" href="#代理-proxies"><span class="nav-number">4.0.2.</span> <span class="nav-text">代理 proxies</span></a></li></ol></li></ol></li></ol></div>
       </div>
       <!--/noindex-->
 
